@@ -1,11 +1,13 @@
 import React from 'react'
 
-function introductionPage() {
-  return (
-    <div>
-      introtion page 
-    </div>
-  )
+const introductionPage =(props) => {
+    return (
+        <div className='introduction_page_container'>
+            <div className='introduction_page_panel'>
+              <img src = {logo} className='introduction_page_image'></img>
+            </div>
+        </div>
+    )
 }
 
 export default introductionPage
