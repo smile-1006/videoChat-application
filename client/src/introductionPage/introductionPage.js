@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from "../resources/images/logo.png"
 
-import "./introductionPage.css"
+import "./IntroductionPage.css"
 
 const introductionPage =(props) => {
     return (

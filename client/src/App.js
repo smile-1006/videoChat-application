@@ -2,24 +2,24 @@ import React from 'react';
 import {BrowserRouter as Router ,Switch,Route} from 'react-router-dom';
 
 import './App.css';
-import introductionPage from './introductionPage/introductionPage';
-import joinRoomPage from './joinRoomPage/joinRoomPage';
-import roomPage from './roomPage/roomPage';
+import IntroductionPage from './introductionPage/introductionPage';
+import JoinRoomPage from './JoinRoomPage/JoinRoomPage';
+import RoomPage from './Roompage/RoomPage';
 
 function App() {
   return (
     <Router>
         <Switch>
           <Route path= '/join-room'>
-            <joinRoomPage/>
+            <JoinRoomPage/>
 
           </Route>
           <Route path= '/room'>
-            <roomPage/>
+            <RoomPage/>
 
           </Route>
           <Route path= '/'>
-            <introductionPage/>
+            <IntroductionPage/>
 
           </Route>
         </Switch>
