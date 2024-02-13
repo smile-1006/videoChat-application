@@ -1,7 +1,10 @@
 import React from 'react';
-import {BrowserRouter as Router ,Switch,Route} from 'react-router-dom'
+import {BrowserRouter as Router ,Switch,Route} from 'react-router-dom';
 
 import './App.css';
+import introductionPage from './introductionPage/introductionPage';
+import joinRoomPage from './joinRoomPage/joinRoomPage';
+import roomPage from './roomPage/roomPage';
 
 function App() {
   return (
