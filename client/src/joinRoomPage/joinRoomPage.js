@@ -28,7 +28,7 @@ const joinRoomPage = (props) => {
 
 const mapStoreStateToProps = (state) => {
   return {
-    ...state
+    ...state,
   }
 }
 
@@ -39,4 +39,4 @@ const mapActionsToProps = (dispatch) => {
   }
 }
 
-export default joinRoomPage
+export default connect(mapStoreStateToProps, mapActionsToProps)(joinRoomPage)
