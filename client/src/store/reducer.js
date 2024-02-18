@@ -10,7 +10,7 @@ const reducer = (state = initialState, action) =>{
         case Actions.SET_IS_ROOM_HOST:
             return {
                 ...state,
-                isRoomHOst: action.isRoomHOst
+                isRoomHOst: action.isRoomHOst,
                 //identity: action.payload
             };
         default:
