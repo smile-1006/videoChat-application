@@ -2,11 +2,13 @@ import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setIsRoomHost } from '../store/actions'
+import JoinRoomTitle from './JoinRoomTitle.js';
+import './JoinRoomPage.css'
 
-import './joinRoomPage.css'
 
-const joinRoomPage = (props) => {
-  const { setIsRoomHostAction } = props;
+
+const JoinRoomPage = (props) => {
+  const { setIsRoomHostAction ,isRoomHost} = props;
   const search = useLocation().search;
 
   useEffect(() => {
@@ -19,8 +21,8 @@ const joinRoomPage = (props) => {
 
   return (
     <div className='join_room_page_container'>
-      <div className='join_room_page_title'>
-        Join a Meeting
+      <div className='join_room_page_panel'>
+        <JoinRoomTitle isRoomHost={isRoomHost} />
         </div>
     </div>
   )
@@ -39,4 +41,4 @@ const mapActionsToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStoreStateToProps, mapActionsToProps)(joinRoomPage)
+export default connect(mapStoreStateToProps, mapActionsToProps)(JoinRoomPage)
