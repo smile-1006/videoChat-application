@@ -1,14 +1,19 @@
 import React, {useState} from 'react'
+import JoinRoomInputs from './JoinRoomInputs';
 
-const JoinRoomContent = () => {
+const JoinRoomContent = (props) => {
   const [roomIdValue, setRoomIdValue] = useState('');
   const [nameValue, setNameValue] = useState('');
 
-  return (
-    <div>
-      hello
-    </div>
-  )
+  return <>
+  <JoinRoomInputs
+  roomIdValue={roomIdValue}
+  setRoomIdValue={setRoomIdValue}
+  nameValue={nameValue}
+  setNameValue={setNameValue}
+  isRoomHost={isRoomHost}
+  />
+  </>;
 }
 
 export default JoinRoomContent
