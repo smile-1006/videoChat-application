@@ -1,7 +1,10 @@
 import React, {useState} from 'react'
 import JoinRoomInputs from './JoinRoomInputs';
+import {connect} from 'react-redux';
 
 const JoinRoomContent = (props) => {
+  const {isRoomHost} = props;
+
   const [roomIdValue, setRoomIdValue] = useState('');
   const [nameValue, setNameValue] = useState('');
 
@@ -16,4 +19,10 @@ const JoinRoomContent = (props) => {
   </>;
 }
 
-export default JoinRoomContent
+const mapStoreStateToProps = (state) => {
+  return {
+    ...state
+  }
+}
+
+export default connect(mapStoreStateToProps)(JoinRoomContent)
