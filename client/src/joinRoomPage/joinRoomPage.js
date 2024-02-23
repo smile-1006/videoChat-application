@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setIsRoomHost } from '../store/actions'
-import JoinRoomTitle from './JoinRoomTitle.js';
+import JoinRoomTitle from './JoinRoomTitle';
 import './JoinRoomPage.css'
-import JoinRoomContent from './JoinRoomContent.js';
+import JoinRoomContent from './JoinRoomContent';
 
 
 
