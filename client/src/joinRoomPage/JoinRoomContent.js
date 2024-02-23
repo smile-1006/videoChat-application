@@ -8,20 +8,22 @@ const JoinRoomContent = (props) => {
   const [roomIdValue, setRoomIdValue] = useState('');
   const [nameValue, setNameValue] = useState('');
 
-  return <>
-  <JoinRoomInputs
-  roomIdValue={roomIdValue}
-  setRoomIdValue={setRoomIdValue}
-  nameValue={nameValue}
-  setNameValue={setNameValue}
-  isRoomHost={isRoomHost}
-  />
-  </>;
+  return (
+    <>
+      <JoinRoomInputs
+        roomIdValue={roomIdValue}
+        setRoomIdValue={setRoomIdValue}
+        nameValue={nameValue}
+        setNameValue={setNameValue}
+        isRoomHost={isRoomHost}
+        />
+      </>
+    )
 }
 
 const mapStoreStateToProps = (state) => {
   return {
-    ...state
+    ...state,
   }
 }
 
