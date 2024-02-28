@@ -18,9 +18,7 @@ const JoinRoomInputs = (props) => {
         setRoomIdValue(event.target.value);
     }
 
-    const handleNameValueChange = (event) => {
-        setNameValue(event.target.value);
-    }
+    
 
     return (
     <div className='join_room_inputs_container'>
@@ -39,6 +37,7 @@ const JoinRoomInputs = (props) => {
     </div>
     )
 }
+
 
 export default JoinRoomInputs
 
