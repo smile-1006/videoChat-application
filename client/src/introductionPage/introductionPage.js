@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import logo from "../resources/images/logo.png"
-
+import {connect} from 'react-redux'
 import "./IntroductionPage.css"
 import ConnectingButtons from './ConnectingButtons'
 
-const introductionPage =(props) => {
+const introductionPage =(setIsRoomHostAction) => {
+    useEffect(() => {
+        setIsRoomHostAction(false);
+    }, [])
+
     return (
         <div className='introduction_page_container'>
             <div className='introduction_page_panel'>
@@ -15,4 +19,10 @@ const introductionPage =(props) => {
     )
 }
 
-export default introductionPage 
+const mapActionsToProps = (dispatch) =>{
+    return {
+        setIsRoomHostAction: (isRoomHost) => dispatch(setIsRoomHost(isRoomHost)),
+    }
+}
+
+export default connect(null, mapActionsToProps)(introductionPage) 
