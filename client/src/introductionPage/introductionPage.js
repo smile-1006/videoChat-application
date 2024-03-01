@@ -3,8 +3,9 @@ import logo from "../resources/images/logo.png"
 import {connect} from 'react-redux'
 import "./IntroductionPage.css"
 import ConnectingButtons from './ConnectingButtons'
+import { setIsRoomHost } from '../store/actions'
 
-const introductionPage =(setIsRoomHostAction) => {
+const IntroductionPage =({setIsRoomHostAction}) => {
     useEffect(() => {
         setIsRoomHostAction(false);
     }, [])
@@ -25,4 +26,4 @@ const mapActionsToProps = (dispatch) =>{
     }
 }
 
-export default connect(null, mapActionsToProps)(introductionPage) 
+export default connect(null, mapActionsToProps)(IntroductionPage) 
