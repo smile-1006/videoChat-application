@@ -9,7 +9,7 @@
   .introduction_page_panel {
     width: 600px;
     height: 400px;
-    background-color: rgb(194, 187, 187);
+    background-color: rgb(255, 255, 255);
     border: 1px solid grey;
     filter: drop-shadow(0 0 0.2rem rgb(104, 34, 34));
     display: flex;
@@ -28,7 +28,7 @@
   }
   
   .join_room_button {
-    background-color: #5993d9;
+    background-color: #3a8ef5;
     border: 1px solid #e5e5e5;
     color: white;
     font-size: 13px;
