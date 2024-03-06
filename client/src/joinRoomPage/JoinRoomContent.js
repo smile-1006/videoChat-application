@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import JoinRoomInputs from './JoinRoomInputs';
 import {connect} from 'react-redux';
+import onlyWithAudioCheckbox from './onlyWithAudioCheckbox';
 
 const JoinRoomContent = (props) => {
   const {isRoomHost} = props;
