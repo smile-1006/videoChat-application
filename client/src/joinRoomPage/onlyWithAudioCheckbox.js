@@ -1,7 +1,7 @@
 import React from 'react'
 import CheckImg from '../resources/images/check.png'
 
-const onlyWithAudioCheckbox = () => {
+const OnlyWithAudioCheckbox = () => {
     const handleConnectionTypeChange = () => {
         console.log('connection type changed');
     }
@@ -16,4 +16,4 @@ const onlyWithAudioCheckbox = () => {
     )
 }
 
-export default onlyWithAudioCheckbox
+export default OnlyWithAudioCheckbox
