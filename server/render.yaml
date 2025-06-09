@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: video-chat-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm run start:prod
+    envVars:
+      - key: PORT
+        value: 10000 # Render will override this with its own port
+        fromDatabase: false
+      - key: TWILIO_ACCOUNT_SID
+        fromDatabase: true
+      - key: TWILIO_AUTH_TOKEN
+        fromDatabase: true
+    autoDeploy: true
+    branch: main
