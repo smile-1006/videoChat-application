@@ -1,9 +1,9 @@
 import React from "react";
-import JoinRoomTitle from "../JoinRoomPage/JoinRoomTitle";
-import JoinRoomInputs from "../JoinRoomPage/JoinRoomInputs";
-import JoinroomButtons from "../JoinRoomPage/JoinroomButtons";
-import ErrorMessage from "../JoinRoomPage/ErrorMessage";
-import OnlyWithAudioCheckbox from "../JoinRoomPage/OnlyWithAudioCheckbox";
+import JoinRoomTitle from "./JoinRoomTitle";
+import JoinRoomInputs from "./JoinRoomInputs";
+import JoinroomButtons from "./JoinroomButtons";
+import ErrorMessage from "./ErrorMessage";
+import OnlyWithAudioCheckbox from "./OnlyWithAudioCheckbox";
 
 import "../JoinRoomPage/JoinRoomPage.css";
 
