@@ -25,6 +25,14 @@ export const getLocalPreviewAndInitRoomConnection = async (
   roomId = null,
   onlyAudio
 ) => {
+  // Cleanup existing peers and streams before starting new connection
+  for (let socketId in peers) {
+    peers[socketId].destroy();
+    delete peers[socketId];
+  }
+  streams = [];
+  localStream = null;
+
   await fetchTURNCredentials();
 
   const constraints = onlyAudio ? onlyAudioConstraints : defaultConstraints;
