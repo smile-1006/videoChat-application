@@ -5,7 +5,7 @@ import JoinroomButtons from "./JoinroomButtons";
 import ErrorMessage from "./ErrorMessage";
 import OnlyWithAudioCheckbox from "./OnlyWithAudioCheckbox";
 
-import "../JoinRoomPage/JoinRoomPage.css";
+import "./JoinRoomPages.css";
 
 const JoinRoomPage = () => {
   return (
