@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import ChatSection from "./ChatLabel.js/ChatSection";
+import ChatSection from "../Roompage/ChatLabel.js/ChatSection";
 import ParticipantsSection from "./ParticipantsSection/ParticipantsSection";
 import VideoSection from "./VideoSection/VideoSection";
 import RoomLabel from "./RoomLabel";
