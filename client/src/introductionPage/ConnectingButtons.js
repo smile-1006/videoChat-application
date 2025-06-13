@@ -1,16 +1,16 @@
 import React from "react";
 import ConnectingButton from "./ConnectingButton";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ConnectingButtons = () => {
-  let history = useHistory();
+  const navigate = useNavigate();
 
   const pushToJoinRoomPage = () => {
-    history.push("/join-room");
+    navigate("/join-room");
   };
 
   const pushToJoinRoomPageAsHost = () => {
-    history.push("/join-room?host=true");
+    navigate("/join-room?host=true");
   };
 
   return (
