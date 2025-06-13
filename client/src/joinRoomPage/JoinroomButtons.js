@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Button = ({ buttonText, cancelButton = false, onClickHandler }) => {
   const buttonClass = cancelButton
@@ -15,11 +15,10 @@ const Button = ({ buttonText, cancelButton = false, onClickHandler }) => {
 
 const JoinRoomButtons = ({ handleJoinRoom, isRoomHost }) => {
   const successButtonText = isRoomHost ? "Host" : "Join";
-
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const pushToIntroductionPage = () => {
-    history.push("/");
+    navigate("/");
   };
 
   return (

@@ -8,8 +8,8 @@ import {
   setRoomId,
 } from "../store/actions";
 import ErrorMessage from "./ErrorMessage";
-import JoinRoomButtons from "./JoinroomButtons";
-import { useHistory } from "react-router-dom";
+import JoinRoomButtons from "./JoinRoomButtons";
+import { useNavigate } from "react-router-dom";
 import { getRoomExists } from "../utils/api";
 import { createNewRoom } from "../utils/wss";
 
@@ -27,9 +27,19 @@ const JoinRoomContent = (props) => {
   const [nameValue, setNameValue] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleJoinRoom = async () => {
+    if (!nameValue.trim()) {
+      setErrorMessage("Please enter your name.");
+      return;
+    }
+
+    if (!isRoomHost && !roomIdValue.trim()) {
+      setErrorMessage("Please enter meeting ID.");
+      return;
+    }
+
     setIdentityAction(nameValue);
     if (isRoomHost) {
       createRoom();
@@ -39,20 +49,23 @@ const JoinRoomContent = (props) => {
   };
 
   const joinRoom = async () => {
-    const responseMessage = await getRoomExists(roomIdValue);
+    try {
+      const responseMessage = await getRoomExists(roomIdValue);
+      const { roomExists, full } = responseMessage;
 
-    const { roomExists, full } = responseMessage;
-
-    if (roomExists) {
-      if (full) {
-        setErrorMessage("Meeting is full. Please try again later.");
+      if (roomExists) {
+        if (full) {
+          setErrorMessage("Meeting is full. Please try again later.");
+        } else {
+          setRoomIdAction(roomIdValue);
+          navigate("/room");
+        }
       } else {
-        // join a room !
-        setRoomIdAction(roomIdValue);
-        history.push("/room");
+        setErrorMessage("Meeting not found. Check your meeting ID.");
       }
-    } else {
-      setErrorMessage("Meeting not found. Check your meeting id.");
+    } catch (error) {
+      console.error("Error checking room:", error);
+      setErrorMessage("Error connecting to server. Please try again.");
     }
   };
 
@@ -62,21 +75,19 @@ const JoinRoomContent = (props) => {
 
   useEffect(() => {
     if (roomId) {
-      history.push("/room");
+      navigate("/room");
     }
-  }, [roomId, history]);
+  }, [roomId, navigate]);
 
   return (
     <>
-      {!isRoomHost && (
-        <JoinRoomInputs
-          roomIdValue={roomIdValue}
-          setRoomIdValue={setRoomIdValue}
-          nameValue={nameValue}
-          setNameValue={setNameValue}
-          isRoomHost={isRoomHost}
-        />
-      )}
+      <JoinRoomInputs
+        roomIdValue={roomIdValue}
+        setRoomIdValue={setRoomIdValue}
+        nameValue={nameValue}
+        setNameValue={setNameValue}
+        isRoomHost={isRoomHost}
+      />
       <OnlyWithAudioCheckbox
         setConnectOnlyWithAudio={setConnectOnlyWithAudio}
         connectOnlyWithAudio={connectOnlyWithAudio}
