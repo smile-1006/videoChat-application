@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import JoinRoomTitle from "./JoinRoomTitle";
-import JoinRoomContent from "./JoinRoomContent";
-import JoinRoomInputs from "./JoinRoomInputs";
+import JoinRoomTitle from "../JoinRoomPage/JoinRoomTitle";
+import JoinRoomContent from "../JoinRoomPage/JoinRoomContent";
+import JoinRoomInputs from "../JoinRoomPage/JoinRoomInputs";
 import OnlyWithAudioCheckbox from "./OnlyWithAudioCheckbox";
-import "./JoinRoomPages.css";
+import "../JoinRoomPage/JoinRoomPages.css";
 
 const JoinRoomPage = () => {
   const location = useLocation();
@@ -18,7 +18,7 @@ const JoinRoomPage = () => {
   return (
     <div className="join-room-page">
       <JoinRoomTitle />
-      <JoinRoomContent />
+      <JoinRoomContent isRoomHost={isHost} />
       <JoinRoomInputs
         roomIdValue={roomIdValue}
         setRoomIdValue={setRoomIdValue}
@@ -29,6 +29,7 @@ const JoinRoomPage = () => {
       <OnlyWithAudioCheckbox
         connectOnlyWithAudio={connectOnlyWithAudio}
         setConnectOnlyWithAudio={setConnectOnlyWithAudio}
+        isRoomHost={isHost}
       />
     </div>
   );

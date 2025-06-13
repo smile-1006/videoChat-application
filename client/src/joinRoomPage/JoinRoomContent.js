@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import JoinRoomInputs from "./JoinRoomInputs";
 import { connect } from "react-redux";
 import OnlyWithAudioCheckbox from "./OnlyWithAudioCheckbox";
@@ -11,6 +11,7 @@ import ErrorMessage from "./ErrorMessage";
 import JoinRoomButtons from "./JoinroomButtons";
 import { useHistory } from "react-router-dom";
 import { getRoomExists } from "../utils/api";
+import { createNewRoom } from "../utils/wss";
 
 const JoinRoomContent = (props) => {
   const {
@@ -19,6 +20,7 @@ const JoinRoomContent = (props) => {
     connectOnlyWithAudio,
     setIdentityAction,
     setRoomIdAction,
+    roomId,
   } = props;
 
   const [roomIdValue, setRoomIdValue] = useState("");
@@ -55,18 +57,26 @@ const JoinRoomContent = (props) => {
   };
 
   const createRoom = () => {
-    history.push("/room");
+    createNewRoom(nameValue, connectOnlyWithAudio);
   };
+
+  useEffect(() => {
+    if (roomId) {
+      history.push("/room");
+    }
+  }, [roomId, history]);
 
   return (
     <>
-      <JoinRoomInputs
-        roomIdValue={roomIdValue}
-        setRoomIdValue={setRoomIdValue}
-        nameValue={nameValue}
-        setNameValue={setNameValue}
-        isRoomHost={isRoomHost}
-      />
+      {!isRoomHost && (
+        <JoinRoomInputs
+          roomIdValue={roomIdValue}
+          setRoomIdValue={setRoomIdValue}
+          nameValue={nameValue}
+          setNameValue={setNameValue}
+          isRoomHost={isRoomHost}
+        />
+      )}
       <OnlyWithAudioCheckbox
         setConnectOnlyWithAudio={setConnectOnlyWithAudio}
         connectOnlyWithAudio={connectOnlyWithAudio}
